@@ -1,0 +1,4 @@
+http://backbonetutorials.com/what-is-a-view/
+
+http://jsfiddle.net/tBS4X/1/
+http://documentcloud.github.io/underscore/

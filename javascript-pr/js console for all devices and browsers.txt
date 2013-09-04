@@ -1,0 +1,8 @@
+http://jsconsole.com/remote-debugging.html
+
+Creating a session
+under above section code like - <script src="http://jsconsole.com/remote.js?FAE031CD-74A0-46D3-AE36-757BAB262BEA"></script>
+paste this code into header
+
+see console in below url
+http://jsconsole.com/?%3Alisten

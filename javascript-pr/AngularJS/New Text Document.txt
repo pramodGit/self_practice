@@ -1,0 +1,37 @@
+==HTML==
+
+<div ng-app='myApp'>
+    <div ng-controller='TextController'>
+        <h1>Your order</h1>
+        <div ng-repeat="item in items">
+            <span>{{item.title}}</span>
+            <input ng-model="item.quantity" />
+            <span>{{item.price | currency}}</span>
+            <span>{{item.price * item.quantity | currency}}</span>
+            <button ng-click="remove($index)">Remove</button>
+        </div>
+    </div>
+</div>
+
+
+
+=====
+JS
+====
+var myAppModule = angular.module('myApp', []);
+
+myAppModule.controller('TextController', function($scope) {
+    $scope.items = [
+        {title : 'Paint pots', quantity : 8, price : 3.95},
+        {title : 'polka pots', quantity : 17, price : 12.95},
+        {title : 'Pebbles', quantity : 5, price : 6.95}
+    ];
+    
+    $scope.remove = function(index) {
+        $scope.items.splice(index, 1);
+    };
+});
+
+
+===
+include AngularJS1.1.1

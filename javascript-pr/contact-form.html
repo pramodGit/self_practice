@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Contact</title>
+	</head>
+	<body id="prContact">
+		<section>
+			<form action="contact.php" id="contactForm" method="post">
+				<fieldset>
+					<legend>Contact Form</legend>
+					<ul>
+						<li>
+							<label for="full_name">Your Name:</label>
+							<input type="text" name="name" id="name" tabindex="1" />
+						</li>
+						<li>
+							<label for="email">Your Email:</label>
+							<input type="text" name="email" id="email" tabindex="2" />
+						</li>
+						<li>
+							<label for="message">Message:</label>
+							<textarea cols="40" rows="8" name="message" id="message"></textarea>
+						</li>
+						<li id="loader">
+							<button type="submit">Submit</button>
+						</li>
+					</ul>
+				</fieldset>
+			</form>
+		</section>
+
+	<!-- JavaScript at the bottom for fast page loading -->
+
+    <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+    <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+    <script>window.jQuery || document.write('<script src="js/libs/jquery.js"><\/script>')</script>
+    <!-- scripts concatenated and minified via build script -->
+    <!-- Project specfic config goes here - projectname.config.js -->
+    <script src="js/pra.config.js"></script>
+    <!-- Main is the JS Boilerplate for the project - projectname.main.js -->
+    <script src="js/pra.main.js"></script>
+    <!-- Common functions can be placed in helper file - projectname.helper.js -->
+    <script src="js/pra.helper.js"></script>
+    <!-- end scripts -->
+    </body>
+</html>
+
+

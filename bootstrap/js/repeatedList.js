@@ -1,0 +1,80 @@
+var myAppModule = angular.module('myApp', []);
+myAppModule.controller('TextController', function($scope) {
+    $scope.items = [
+        {
+            href : 'http://www.beatsbydre.com/',
+            img : 'img/Beats.png',
+            comp : 'Beatsbydre',
+            role : 'Interactive Developer',
+            text : {
+                one : 'Developed ecommerce portal in DemandWare.',
+                two : 'Responsive HTML of PSD.',
+                three : 'Developed jQuery & JavaScript', 
+                four : 'Compatible with all browsers'
+            }
+        },
+        {
+            href : 'http://www.facebook.com/Lux/app_398502690233634',
+            img : 'img/lux-app.png',
+            comp : 'Lux Samsung App',
+            role : 'Interactive Developer',
+            text : {
+                one : 'Developed HTML5 Pages for Facebook App.',
+                two : 'Compatible for Multiple Devices',
+                three : 'Ajax, jQuery & JavaScript', 
+                four : 'Compatible with all browsers'
+            }
+        },
+        {
+            href : 'http://www.vodafone.co.uk/',
+            img : 'img/vodafone.png',
+            comp : 'Vodafone',
+            role : 'Interactive Developer',
+            text : {
+                one : 'Developed Website in HTML5 and CSS3',
+                two : 'Support for all browsers',
+                three : 'Web Accessibility Compatible', 
+                four : 'Used Modernizr and HTML5 boilerplate'
+            }
+        },
+        {
+            href : 'http://www.breezepm.com/',
+            img : 'img/breezepm.png',
+            comp : 'Breezepm',
+            stat : 'Product of Blue Thread',
+            role : 'UI Developer',
+            text : {
+                one : 'HTMLization of Breezepm website and Breezepm',
+                two : 'Compatible for all browsers',
+                three : 'HTMLization of http://www.blue-thread.com/', 
+                four : 'Compatible with all browsers'
+            }
+        },
+        {
+            img : 'img/Beats.png',
+            comp : 'Paint pots',
+            role : 'Interactive Developer',
+            text : {
+                one : 'Developed ecommerce portal in DemandWare.',
+                two : 'Responsive HTML of PSD.',
+                three : 'Developed JQuery & JavaScript', 
+                four : 'Compatible with all browsers'
+            }
+        },
+        {
+            img : 'img/Beats.png',
+            comp : 'Paint pots',
+            role : 'Interactive Developer',
+            text : {
+                one : 'Developed ecommerce portal in DemandWare.',
+                two : 'Responsive HTML of PSD.',
+                three : 'Developed JQuery & JavaScript', 
+                four : 'Compatible with all browsers'
+            }
+        }
+    ];
+
+    $scope.remove = function(index) {
+        $scope.items.splice(index, 1);
+    };
+});

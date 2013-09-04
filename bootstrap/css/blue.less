@@ -1,0 +1,90 @@
+/* ===== Less Styles ========================================================
+   Author: Pramod (2013) (http://www.userinterfacemedia.com)
+   ========================================================================== */
+/*
+ * Default Theme
+ *
+*/
+
+@blue: #0088cc;
+@dark-blue: #007fbe;
+@light-blue: #0090d8;
+@very-light-blue: #2ba7e4;
+@heading-color: #03122f;
+@heading-text-color: rgb(82, 133, 209);
+@sub-heading-color: #03122f;
+
+@dark-grey: #333;
+@grey: #414141;
+
+@nav-text-color: #fff;
+@nav-text-shadow: #000;
+@content-background: #f7f7f7;
+@content-background-blue: #006ca6;
+
+@active-color: #000;
+
+@border-color: #aaa;
+
+@radius: 8px;
+
+/* = Mixin Styles
+========================================================================== */
+.border-radius (@border-radius) {
+  border-radius: @border-radius;
+  -moz-border-radius: @border-radius;
+  -webkit-border-radius: @border-radius;
+}
+.bordered {
+  border-top: dotted 1px @border-color;
+  border-bottom: solid 2px @border-color;
+}
+
+
+/* = Styling
+========================================================================== */
+
+.navbar-inner {
+	background-image: linear-gradient(to bottom,@light-blue,@blue);
+}
+.navbar .nav > li > a {
+	color: @nav-text-color;
+	text-shadow: 0 1px 0 @nav-text-shadow;
+}
+.navbar .nav > li.active > a {
+  color: @active-color;
+}
+
+.hero-unit,
+.content {
+	background: @content-background;
+}
+.content {
+	.bordered;
+	.border-radius(@radius);
+}
+.navbar .brand {
+  color: @nav-text-color;
+  text-shadow: 0 1px 0 black;
+}
+h1, h2 {
+  color: @heading-text-color;
+}
+#carousel > li > article h2 {
+  color: @heading-color;
+}
+#carousel > li > article h3 {
+  color: @sub-heading-color;
+}
+.media-heading {
+  color: @grey;
+}
+.navbar-inner {
+  .border-radius(@radius);
+}
+.spr-h {
+  border-color: @border-color;
+}
+.bar {
+  .border-radius(@radius);
+}
