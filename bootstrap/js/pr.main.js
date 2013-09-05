@@ -149,6 +149,6 @@
     }());
 
 /**
- * Check to evaluate whether 'pr MODULE' exists in the global namespace - if not, assign window.MODULE an object literal
+ * Check to evaluate whether 'pr' exists in the global namespace - if not, assign window.pr an object literal
  */
 }(window.pr = window.pr || {}, jQuery));
