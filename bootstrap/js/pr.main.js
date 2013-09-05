@@ -1,7 +1,7 @@
 /* JavaScript Boilerplate main scripting file *
  * @author    Pramod Kumar
 */
-/* pr MODULE (our namespace name) and undefined are passed here
+/* pr (our namespace name) and undefined are passed here
  * to ensure 1. namespace can be modified locally and isn't
  * overwritten outside of our function context
  * 2. the value of undefined is guaranteed as being truly
@@ -21,7 +21,7 @@
      * Logging function, for debugging mode
      */
 	$.log = function (message) {
-        if (MODULE.config.debug && (typeof window.console !== 'undefined' && typeof window.console.log !== 'undefined') && console.debug) {
+        if (pr.config.debug && (typeof window.console !== 'undefined' && typeof window.console.log !== 'undefined') && console.debug) {
             console.debug(message);
         } /*else {
             alert(message);
