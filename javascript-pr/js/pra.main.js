@@ -203,6 +203,7 @@
                             $.log(response.id);
                             $.log(response.name);
                         });
+                        $("#prFB").html("Logged In....");
                        /* FB.api('me/friends/', function(returnData) {
                             $.log(returnData); 
                         });*/
