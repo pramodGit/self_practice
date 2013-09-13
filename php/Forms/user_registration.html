@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>PHP</title>
+        <meta name="description" content="Learn PHP">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        
+        <h1>CREATE A USER ACCOUNT</h1>
+        <h2>Create an account</h2>
+        
+        <form id="usrRg" action="register.php" method="post" autocomplete="on">
+            <ul>
+                <li>
+                    <input required type="text" name="fName" placeholder="First Name" autofocus />
+                </li>
+                <li>
+                    <input required type="text" name="lName" placeholder="Last Name" />
+                </li>
+                <li>
+                    <input required type="email" name="email" placeholder="Email" />
+                </li>
+                <li>
+                    <input required type="password" name="password" placeholder="Password" />
+                </li>
+                <li>
+                    <input type="submit" value="Submit">
+                    <input type="submit" formenctype="multipart/form-data" value="Submit as Multipart/form-data">
+                </li>
+            </ul>
+        </form>
+    </body>
+    
+</html>
