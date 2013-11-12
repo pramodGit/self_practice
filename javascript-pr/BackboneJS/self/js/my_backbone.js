@@ -41,28 +41,50 @@
 		views: {},
 		routers: {}
 	};
+	/*Setting attributes*/
 	pr.models = Backbone.Model.extend ({
 		initialize: function(){
-			console.log("Welcome to the Backbone Model");
+			console.log("...Welcome to the Backbone Model...");
+			this.bind("change:name", function () {
+				var name = this.get("name");
+				console.log("Changed my name to " + name );
+			});
+		},
+		defaults: {
+			name: 'Pr',
+			age: 0,
+			children: []
+		},
+		replaceNameAttr: function (name) {
+			this.set({ name: name });
 		}
 	});
 	pr.cllections = Backbone.Collection.extend ({
 		initialize: function(){
-			console.log("Welcome to the Backbone Collection");
+			console.log("...Welcome to the Backbone Collection...");
 		}
 	});
 	pr.views = Backbone.View.extend ({
 		initialize: function(){
-			console.log("Welcome to the Backbone View");
+			console.log("...Welcome to the Backbone View...");
 		}
 	});
 	pr.routers = Backbone.Router.extend ({
 		initialize: function(){
-			console.log("Welcome to the Backbone Router");
+			console.log("...Welcome to the Backbone Router...");
 		}
 	});
 	
-	new pr.models();
+	var person = new pr.models();
+	person.set({ name: "Pramod", age: 25});
+	
+	var age = person.get('age');
+	var name = person.get('name');
+	console.log("age: " + age + "\n" + "name: " + name );
+	
+	person.replaceNameAttr('Kumar'); // This triggers a change and will log()
+	
+	
 	new pr.cllections();
 	new pr.views();
 	new pr.routers();
