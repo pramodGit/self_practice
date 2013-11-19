@@ -20,7 +20,7 @@
 
 /*jslint devel: true, nomen: true, unparam: true, sloppy: true, indent: 4, newcap:true */
 
-/*global jQuery, window, Backbone */
+/*global jQuery, window, Backbone, _ */
 
 (function (pr, $, undefined) {
 	
@@ -75,6 +75,7 @@
 		}
 	});
 	
+	/* Modal Getter and Setter */
 	var person = new pr.models();
 	person.set({ name: "Pramod", age: 25});
 	
@@ -84,7 +85,35 @@
 	
 	person.replaceNameAttr('Kumar'); // This triggers a change and will log()
 	
-	
+	/* View advance */
+	pr.SearchView = Backbone.View.extend({
+		initialize: function(){
+			this.render();
+		},
+		render: function(){
+			// Compile the template using underscore
+			//var template = _.template( $("#search_template").html(), {} );
+			//console.log(template);
+			// Load the compiled HTML into the Backbone "el"
+			//this.el.html( template );
+		},
+		events: {
+			"click input[type=button]": "doSearch"  
+		},
+		doSearch: function( e ){
+			e.preventDefault();
+			console.log($("#search_input").val());
+			// Button clicked, you can access the element that was clicked with event.currentTarget
+			alert( "Search for " + $("#search_input").val() );
+		}
+	});
+		
+	var search_view = new pr.SearchView({el: 'body'});
+	/*The "el" property references the DOM object created in the browser. 
+	Every Backbone.js view has an "el" property, and if it not defined, 
+	Backbone.js will construct its own, which is an empty div element.*/
+
+
 	new pr.cllections();
 	new pr.views();
 	new pr.routers();
