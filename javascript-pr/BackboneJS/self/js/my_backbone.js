@@ -85,7 +85,7 @@
 	
 	person.replaceNameAttr('Kumar'); // This triggers a change and will log()
 	
-	/* View advance */
+	/* View Advance */
 	pr.SearchView = Backbone.View.extend({
 		initialize: function(){
 			this.render();
@@ -112,6 +112,30 @@
 	/*The "el" property references the DOM object created in the browser. 
 	Every Backbone.js view has an "el" property, and if it not defined, 
 	Backbone.js will construct its own, which is an empty div element.*/
+	
+	/* Collection Advance */
+	pr.Client = Backbone.Model.extend({
+		defaults: {
+			Name: '',
+			City: ''
+		},
+		initialize: function () {
+			console.log("Collection of the clients");
+		}
+	});
+	
+	pr.Clients = Backbone.Collection.extend({
+		model: pr.Client,
+		url: 'Clients'
+	});
+	var prCollection1 = new pr.Client({Name : 'Pramod1', City : 'NCR1'});
+	var prCollection2 = new pr.Client({Name : 'Pramod2', City : 'NCR2'});
+	var prCollection3 = new pr.Client({Name : 'Pramod3', City : 'NCR3'});
+	
+	var prCollections = new pr.Clients ([ prCollection1, prCollection2, prCollection3 ]);
+	console.log( prCollections.models[0].attributes ); // [prCollection1]
+	console.log( prCollections.models[1].attributes ); // [prCollection2]
+	console.log( prCollections.models[2].attributes ); // [prCollection3]
 
 
 	new pr.cllections();
