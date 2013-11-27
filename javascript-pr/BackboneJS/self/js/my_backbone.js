@@ -87,15 +87,19 @@
 	
 	/* View Advance */
 	pr.SearchView = Backbone.View.extend({
+		el: 'body',
 		initialize: function(){
 			this.render();
 		},
 		render: function(){
 			// Compile the template using underscore
-			//var template = _.template( $("#search_template").html(), {} );
-			//console.log(template);
+			var template1 = _.template( $("#search_container").html(), {} );
+			console.log( 'template1 - ' + template1 );
+			var template = _.template( $("#search_template").html(), {} );
+			console.log( 'template - ' + template );
 			// Load the compiled HTML into the Backbone "el"
-			//this.el.html( template );
+			//$(this.el).html( '------- ** Template Rendering ** ----------' + '<br />' + template1 + ' Output ' );
+			$(this.el).html( '------- ** Template Rendering ** ----------' + '<br />' + template );
 		},
 		events: {
 			"click input[type=button]": "doSearch"  
@@ -108,7 +112,11 @@
 		}
 	});
 		
-	var search_view = new pr.SearchView({el: 'body'});
+	//var search_view = new pr.SearchView({el: 'body'});
+	var search_view = new pr.SearchView();
+	console.log( 'search_view --' + search_view );
+	console.log( 'search_view HTML --' + search_view.el.innerHTML );
+	console.log( search_view.cid );
 	/*The "el" property references the DOM object created in the browser. 
 	Every Backbone.js view has an "el" property, and if it not defined, 
 	Backbone.js will construct its own, which is an empty div element.*/
@@ -116,11 +124,11 @@
 	/* Collection Advance */
 	pr.Client = Backbone.Model.extend({
 		defaults: {
-			Name: '',
-			City: ''
+			Name: 'default',
+			City: 'default'
 		},
 		initialize: function () {
-			console.log("Collection of the clients");
+			console.log( "Collection of the clients" );
 		}
 	});
 	
@@ -133,6 +141,7 @@
 	var prCollection3 = new pr.Client({Name : 'Pramod3', City : 'NCR3'});
 	
 	var prCollections = new pr.Clients ([ prCollection1, prCollection2, prCollection3 ]);
+	console.log( prCollections.models[0].cid );
 	console.log( prCollections.models[0].attributes ); // [prCollection1]
 	console.log( prCollections.models[1].attributes ); // [prCollection2]
 	console.log( prCollections.models[2].attributes ); // [prCollection3]
