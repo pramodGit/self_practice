@@ -141,6 +141,7 @@
 	var prCollection3 = new pr.Client({Name : 'Pramod3', City : 'NCR3'});
 	
 	var prCollections = new pr.Clients ([ prCollection1, prCollection2, prCollection3 ]);
+	console.log( ' -- ' + JSON.stringify(prCollections.toJSON()));
 	console.log( prCollections.models[0].cid );
 	console.log( prCollections.models[0].attributes ); // [prCollection1]
 	console.log( prCollections.models[1].attributes ); // [prCollection2]
