@@ -39,8 +39,7 @@
         // Homepage Module
         function _subModule() {
 
-            var _this = this,
-                setSkills = {
+            var setSkills = {
                 set: function() {
                     var $skillSet = $("#skillRating").find(".bar");
                     $.each($skillSet, function () {
@@ -65,10 +64,10 @@
             };
 
             return this.init(); /*initialize the init()*/
-        };
+        }
         // Portfolio Module with require JS
         function _prProfile () {
-            var _this = this; /* Store this to avoid scope conflicts */
+            //var _this = this; /* Store this to avoid scope conflicts */
 
             /*
             * slider control
@@ -95,7 +94,7 @@
             };
 
             return this.init(); /*initialize the init()*/
-        };
+        }
         // Contact Form module
         function _prContact () {
 
@@ -136,11 +135,11 @@
             };
 
             return this.init(); /*initialize the init()*/
-        };
-        if ($("body").attr("id") == 'prContact') {
+        }
+        if ($("body").attr("id") === 'prContact') {
             return new _prContact();
         }
-        else if ($("body").attr("id") == 'prPortfolio') {
+        else if ($("body").attr("id") === 'prPortfolio') {
             return new _prProfile();
         }
         else {
