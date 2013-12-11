@@ -13,7 +13,7 @@
 
 /*jslint devel: true, nomen: true, unparam: true, sloppy: true, indent: 4, newcap:true */
 
-/*global FB:false, jQuery, window, document*/
+/*global jQuery, window, require*/
 
 (function (pr, $, undefined) {
 
@@ -111,10 +111,10 @@
                         $loader = $('#loader');
                     $loader.html('<img src="../img/loader.gif" /> Please Wait...');
                     $.ajax({
-                       type: "POST",
-                       url: post_url,
-                       data: post_data,
-                       success: function(msg) {
+						type: "POST",
+						url: post_url,
+						data: post_data,
+						success: function(msg) {
                             $loader.fadeOut(500, function () {
                                 $loader.html(msg).fadeIn();
                             });

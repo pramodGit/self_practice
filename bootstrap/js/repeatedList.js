@@ -1,3 +1,5 @@
+/* global angular */
+
 var myAppModule = angular.module('myApp', []);
 myAppModule.controller('TextController', function($scope) {
     $scope.items = [
