@@ -1,10 +1,26 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" id="ng-app" ng-app>
 <head>
 	<meta charset="UTF-8">
 	<title>You have started your journey</title>
 </head>
-<body>
-	
+<body ng-controller="myController0">
+	<p>{{someText}}</p>
+	<p>{{messages.someText}}</p>
+
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>-->
+	<script src="lib/angular/angular.js"></script>
+	<script>
+		function myController0 ($scope) {
+			$scope.someText = 'You have started your journey';
+		}
+	</script>
+	<script>
+		var messages = {};
+		messages.someText = 'You have started your journey.';
+		function myController1 ($scope) {
+			$scope.messages = messages;
+		}
+	</script>
 </body>
 </html>

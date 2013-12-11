@@ -51,25 +51,27 @@ myAppModule.controller('TextController', function($scope) {
             }
         },
         {
-            img : 'img/Beats.png',
-            comp : 'Paint pots',
-            role : 'Interactive Developer',
+            href : 'http://www.thelocallocksmiths.com/',
+            img : 'img/thelocallocksmiths_com.png',
+            comp : 'Locksmith',
+            role : 'Web Designer',
             text : {
-                one : 'Developed ecommerce portal in DemandWare.',
-                two : 'Responsive HTML of PSD.',
-                three : 'Developed JQuery & JavaScript', 
+                one : 'Layout design in Photoshop',
+                two : 'Conversion of PSD into HTML',
+                three : 'Developed jQuery & JavaScript', 
                 four : 'Compatible with all browsers'
             }
         },
         {
-            img : 'img/Beats.png',
-            comp : 'Paint pots',
-            role : 'Interactive Developer',
+            href : 'http://www.keys-replacements.com/',
+            img : 'img/keys-replacements_com.png',
+            comp : 'Key Replacements',
+            role : 'Web Designer',
             text : {
-                one : 'Developed ecommerce portal in DemandWare.',
-                two : 'Responsive HTML of PSD.',
-                three : 'Developed JQuery & JavaScript', 
-                four : 'Compatible with all browsers'
+                one : 'Layout design in Photoshop',
+                two : 'Conversion of PSD into HTML',
+                four : 'Compatible with all browsers',
+                three : 'Developed jQuery & JavaScript',
             }
         }
     ];

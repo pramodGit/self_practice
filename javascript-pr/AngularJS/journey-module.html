@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" id="ng-app" ng-app='myApp'>
+<head>
+	<meta charset="UTF-8">
+	<title>Angular journey - Module</title>
+</head>
+<body ng-controller='myController2'>
+	<p>{{someText.message}}</p>
+	<p>{{someText.greeting}}</p>
+	<p ng-bind="someText.greeting"></p>
+
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>-->
+	<script src="lib/angular/angular.js"></script>
+	<script>
+		var myAppModule = angular.module('myApp', []);
+		myAppModule.controller('myController2',
+		function($scope) {
+			var someText = {};
+			someText.message = 'You have started your journey with module.';
+			someText.greeting = 'Hi There';
+			$scope.someText = someText;
+		});
+	</script>
+</body>
+</html>
