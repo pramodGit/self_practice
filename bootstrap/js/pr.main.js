@@ -77,8 +77,8 @@
                 var $carouselContainer = $("#carouselContainer"),
                     $data = $carouselContainer.find("img").eq(0),
                     $liWidth = $("#carousel > li").eq(0).outerWidth();
-                    $liWidth += 4,
-                    $totalLi = $("#carousel > li").length,
+                $liWidth += 4;
+                var $totalLi = $("#carousel > li").length,
                     $wdth = $("#carousel > li").length * pr.config.liWidth;
                 $carouselContainer.find("#carousel").css("width",$wdth);
                 require(['slider'], function(carouselControl){
