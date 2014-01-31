@@ -1,0 +1,52 @@
+/* ===== Primary Styles ========================================================
+   Author: Pramod (2014) (http://www.userinterfacemedia.com)
+   ========================================================================== */
+body {
+	background-image: url("../images/texture.jpg");
+	/*background-image: url("../images/texture_1.jpg");
+	background-image: url("../images/texture_2.jpg");*/
+}
+body {
+	/*background: #005380;*/
+}
+#main {
+	width: 100%;
+}
+.navbar {
+	margin-bottom: 15px;
+}
+.navbar-inner {
+	min-height: 45px;
+}
+.navbar .nav > li {
+	line-height: 25px;
+}
+.navbar .nav > li.active > a,
+.navbar .nav > li > a:hover {
+	text-shadow: none;
+}
+.nav [class*=" icon-"] {
+	margin-right: 2px;
+}
+h1 {
+	font-size: 2rem;
+}
+h2 {
+	font-size: 1.6rem;
+}
+h3 {
+	font-size: 1rem;
+}
+h1, h2, h3, h4{
+	line-height: 1.2;
+}
+h1, h2, h3, h4, h5, h6 {
+	color: rgb(82, 133, 209);
+	font-weight: normal;
+	margin: 5px 0;
+}
+h2 { margin-bottom: 10px;}
+h3 em { font-size: .9em; color: #000;}
+
+/* =New section
+========================================================================== */
