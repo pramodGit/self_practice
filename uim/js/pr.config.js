@@ -12,22 +12,18 @@
 
 /*jslint sloppy: true */
 
-/*global FB:false, jQuery, window, document*/
+/*global jQuery, window */
 
 (function (pr, undefined) {
 	pr.config = {
 		language: 'english',
         debug: true,
-		slider: {
-			scrollCount: 3,
-			auto: 'false'
-		},
-		carouselImages : ["thumb1.gif", "thumb2.gif", "thumb3.gif", "thumb4.gif", "thumb5.gif", "thumb6.gif", "thumb1.gif", "thumb2.gif", "thumb3.gif", "thumb4.gif", "thumb5.gif", "thumb6.gif"],
-		imgWidth: 100,
-		imgHeight: 120,
-		liWidth: 304
+		nav: {
+			first: 'Home',
+			sec: 'Blog'
+		}
 	};
-
+	
 /**
  * Check to evaluate whether 'pr' exists in the global namespace - if not, assign window.pr an object literal.
  */

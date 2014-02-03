@@ -14,7 +14,7 @@
     	<!-- My Style -->
     	<link href="css/uim.css" rel="stylesheet">
     	<!-- Less Style -->
-    	<link rel="stylesheet/less" href="css/blue.less" />
+    	<link rel="stylesheet/less" href="css/style.less" />
     	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     	<!--[if lt IE 9]>
             <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -41,17 +41,14 @@
 				      <div class="nav-collapse collapse">
 				        <!-- .nav, .navbar-search, .navbar-form, etc -->
 				        <ul class="nav">
-					      <li class="active"><a href="#"><i class="icon-home"></i> Home</a></li>
-					      <li><a href="experience.html"><i class="icon-tasks icon-white"></i> Experience</a></li>
-					      <li><a href="portfolio.html"><i class="icon-folder-close icon-white"></i> Portfolio</a></li>
-					      <li><a href="http://blog.userinterfacemedia.com/" target="_blank"><i class="icon-book icon-white"></i> Blog</a></li>
-					      <li><a href="contact.html"><i class="icon-list-alt icon-white"></i> Contact</a></li>
+					      <li class="active"><a href="#"><i class="icon-home"></i> </a></li>
+					      <li><a href="http://blog.userinterfacemedia.com/" target="_blank"><i class="icon-book icon-white"></i> </a></li>
+					      <li><a href="contact.html"><i class="icon-list-alt icon-white"></i> </a></li>
 					    </ul>
 						<form class="navbar-search pull-right">
 						  <input type="text" class="search-query" placeholder="Search">
 						</form>
 				      </div>
-				 
 				    </div>
 				  </div>
 				</div>
@@ -60,13 +57,26 @@
 			<!-- START : Content -->
 			<section id="middle">
 				<div class="container">
+					<div class="row-fluid logo">
+						<div class="span6">
+							<h1>TEST</h1>
+						</div>
+						<div class="span6"></div>
+					</div>
 					<div class="row-fluid">
-						<h1>TEST</h1>
-						<div class="span8">
-							Left
+						<div class="span9 showcase">
+							<ul class="thumbnails">
+								<li class="span4">
+									<div class="thumbnail">
+									</div>
+								</li>
+								<li class="span8">
+									<h2>jddj</h2>
+								</li>
+							</ul>
 						</div>
 						<div class="span3">
-							Right
+							Right Panel
 						</div>
 					</div>
 				</div>
@@ -80,10 +90,17 @@
 	</body>
 
 	<!-- JavaScript at the bottom for fast page loading -->
-	<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
-    <script>window.jQuery || document.write('<script src="js/libs/jquery.js"><\/script>')</script>
-	<!-- Bootstrap -->
-    <script src="js/libs/bootstrap.min.js"></script>
-    <script src="js/libs/less.js"></script>
-    <script src="js/pr.main.js"></script>
+	
+	<!--<script src="//ajax.googleapis.com/ajax/lib/jquery/1.9.1/jquery.min.js"></script> 
+    <script>window.jQuery || document.write('<script src="js/lib/jquery.js"><\/script>')</script>-->
+	<!-- Bootstrap 
+    <script src="js/lib/bootstrap.min.js"></script>-->
+	<!-- Less 
+    <script src="js/lib/less.js"></script> -->
+	<!-- Config 
+	<script src="js/pr.config.js"></script> -->
+	
+	<!-- Above JS files included through RequireJs -->
+	<script data-main="js/pr.main" src="js/lib/require.js"></script>
+	
 </html>

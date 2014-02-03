@@ -1,3 +1,7 @@
+/* apply a natural box layout model to all elements */
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
 /* ===== Primary Styles ========================================================
    Author: Pramod (2014) (http://www.userinterfacemedia.com)
    ========================================================================== */
@@ -50,3 +54,40 @@ h3 em { font-size: .9em; color: #000;}
 
 /* =New section
 ========================================================================== */
+.logo {
+	padding: 10px 0 20px;
+}
+.row-fluid .showcase {
+	margin-left: 0;
+}
+.showcase {
+	width: 100%;
+	min-height: 235px;
+	padding: 10px 10px 0;
+	margin-bottom: 20px;
+	-webkit-box-shadow: 0 0 6px 0px rgba(50, 50, 50, 0.1);
+	-moz-box-shadow: 0 0 6px 0px rgba(50, 50, 50, 0.1);
+	box-shadow: 0 0 6px 0px rgba(50, 50, 50, 0.1);
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+}
+.showcase .thumbnails {
+	margin: 0;
+}
+.showcase .thumbnails>li {
+	margin-bottom: 10px;
+}
+.navbar-inverse .navbar-inner {
+	background-color: #5c5c5c;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#5c5c5c), to(#222222));
+	background-image: -webkit-linear-gradient(top, #5c5c5c 0%, #222222 100%);
+	background-image: -moz-linear-gradient(top, #5c5c5c 0%, #222222 100%);
+	background-image: -ms-linear-gradient(top, #5c5c5c 0%, #222222 100%);
+	background-image: -o-linear-gradient(top, #5c5c5c 0%, #222222 100%);
+	background-image: linear-gradient(top, #5c5c5c 0% #222222 100%);
+	border-bottom: 2px solid #888;
+}
+.thumbnail {
+	min-height: 200px;
+}

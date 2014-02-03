@@ -185,5 +185,5 @@ ul.intervals li {
 #carouselContainer .controls:hover {
 	opacity: 1.0;
 }
-#portfolio.content { /*background: #17181a;*/background: transparent url(../img/texture.jpg);}
+#portfolio.content { background: #eee;/*background: transparent url(../img/texture.jpg);*/}
 #portfolio h4 { margin: 0; padding: 0;}

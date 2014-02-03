@@ -1,33 +1,8 @@
 /* ===== Less Styles ========================================================
    Author: Pramod (2014) (http://www.userinterfacemedia.com)
    ========================================================================== */
-/*
- * Default Theme
- *
-*/
 
-@blue: #0088cc;
-@dark-blue: #007fbe;
-@light-blue: #0090d8;
-@very-light-blue: #2ba7e4;
-@heading-color: #03122f;
-@heading-text-color: rgb(82, 133, 209);
-@sub-heading-color: #03122f;
-
-@dark-grey: #333;
-@grey: #414141;
-@black: #000;
-
-@nav-text-color: #fff;
-@nav-text-shadow: #000;
-@content-background: #f7f7f7;
-@content-background-blue: #006ca6;
-
-@active-color: #fff;
-
-@border-color: #aaa;
-
-@radius: 8px;
+@import "default.less";
 
 /* = Mixin Styles
 ========================================================================== */
@@ -37,10 +12,8 @@
   -webkit-border-radius: @border-radius;
 }
 .bordered {
-  border-top: dotted 1px @border-color;
-  border-bottom: solid 2px @border-color;
+  border: solid 1px @border-color;
 }
-
 
 /* = Styling
 ========================================================================== */
@@ -57,4 +30,9 @@
 }
 h1, h2 {
   color: @heading-text-color;
+}
+.showcase {
+	background: @content-background;
+	.bordered;
+	.border-radius(@radius);
 }
