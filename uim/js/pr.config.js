@@ -12,12 +12,12 @@
 
 /*jslint sloppy: true */
 
-/*global jQuery, window */
+/*global window, jQuery */
 
-(function (pr, undefined) {
+(function (pr, $, undefined) {
 	pr.config = {
 		language: 'english',
-        debug: true,
+		debug: true,
 		nav: {
 			first: 'Home',
 			sec: 'Blog'
@@ -28,3 +28,4 @@
  * Check to evaluate whether 'pr' exists in the global namespace - if not, assign window.pr an object literal.
  */
 }(window.pr = window.pr || {}, jQuery));
+	
