@@ -73,10 +73,10 @@ require(['jQuery', 'modernizr', 'angular', 'less', 'bootstrap', 'prConfig', 'rep
 			function _uim() {
 				var XYZ = {
 					ABC: function() {
-						console.log(pr.config.nav.first);
+						//console.log(pr.config.nav.first);
 					},
 					DEF: function() {
-						console.log(pr.config.nav.sec);
+						//console.log(pr.config.nav.sec);
 					},
 					init: function() {
 						XYZ.ABC();

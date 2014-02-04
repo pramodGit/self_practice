@@ -2,23 +2,22 @@
 
 define(['angular'], function (angular) {
 	
-	var myAppModule = angular.module('uimApp', []);
+	var uimNav = angular.module('uimApp', []);
 	
-	myAppModule.controller('navController', function($scope) {
-		$scope.links = [
-			{
-				text : {
-					first : 'Home',
-					sec : 'Blog',
-					third: 'Contact'
-				}
-			}
-		];
-		$scope.remove = function(index) {
-			$scope.links.splice(index, 1);
-		};	
-	});
-	myAppModule.controller('TextController', function($scope) {
+	uimNav.controller('uimNavCtrl', ['$scope', function($scope){
+		$scope.first = 'Home';
+		$scope.sec = 'Blog';
+		$scope.third = 'Contact';
+	}]);
+	
+	return uimNav;
+});
+
+define(['angular'], function (angular) {
+	
+	var uimAppModule = angular.module('uimApp', []);
+	
+	uimAppModule.controller('TextController', function($scope) {
 		$scope.items = [
 			{
 				href : 'http://www.beatsbydre.com/',
@@ -99,5 +98,5 @@ define(['angular'], function (angular) {
 			$scope.items.splice(index, 1);
 		};
 	});
-	return myAppModule;
+	return uimAppModule;
 });
