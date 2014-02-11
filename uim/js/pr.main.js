@@ -24,6 +24,7 @@ require.config({
 		'angular': 'lib/angular',
 		'bootstrap': 'lib/bootstrap',
 		'less': 'lib/less',
+		'twitter': 'pr.tweet',
 		'prConfig': 'pr.config',
 		'repeatedList': 'json/repeatedList'
 	},
@@ -33,6 +34,9 @@ require.config({
 		'bootstrap': {
 			'exports' : 'bootstrap',
 			'deps': ["jQuery"]
+		},
+		'twitter': {
+			'exports' : 'twitter'
 		},
 		'prConfig': {
 			'exports' : 'prConfig',
@@ -71,24 +75,32 @@ require(['jQuery', 'modernizr', 'angular', 'less', 'bootstrap', 'prConfig', 'rep
 		*/
 		pr.uim = (function () {
 			function _uim() {
-				var XYZ = {
-					ABC: function() {
-						//console.log(pr.config.nav.first);
-					},
-					DEF: function() {
-						//console.log(pr.config.nav.sec);
-					},
-					init: function() {
-						XYZ.ABC();
-						XYZ.DEF();
-					}	
+				
+				var _this = this; /* Store this to avoid scope conflicts */
+				
+				/**
+				 * Load Tweeter Feed
+				 */
+				this.prTweets = function () {
+					if ($("#pr-tweets").length > 0) {
+						require(['twitter'], function () {
+							// console.log();
+						});
+					}
 				};
-	
+				/**
+				 * Load Wordpress Feed
+				 */
+				var prBlog = function () {
+					
+				};
+				
 				/**
 				 * Init call
 				 */
 				this.init = function () {
-					XYZ.init();
+					prBlog();
+					_this.prTweets();
 					return this; /*this refere to pr.uim*/
 				};
 				return this.init(); /*initialize the init()*/

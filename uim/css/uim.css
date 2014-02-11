@@ -5,13 +5,18 @@
 /* ===== Primary Styles ========================================================
    Author: Pramod (2014) (http://www.userinterfacemedia.com)
    ========================================================================== */
+@viewport{
+    zoom: 1.0;
+    width: extend-to-zoom;
+}
+@-ms-viewport{
+    width: extend-to-zoom;
+    zoom: 1.0;
+}
 body {
 	background-image: url("../images/texture.jpg");
 	/*background-image: url("../images/texture_1.jpg");
 	background-image: url("../images/texture_2.jpg");*/
-}
-body {
-	/*background: #005380;*/
 }
 #main {
 	width: 100%;

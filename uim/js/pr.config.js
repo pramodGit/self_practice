@@ -21,6 +21,13 @@
 		nav: {
 			first: 'Home',
 			sec: 'Blog'
+		},
+		tweets: {
+			'data': 'nofooter transparent',
+			'class': 'twitter-timeline',
+			'anchor': 'https://twitter.com/_pramod',
+			'id': '433103764828852224',
+			'limit': '5'
 		}
 	};
 	
