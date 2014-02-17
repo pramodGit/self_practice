@@ -1,27 +1,18 @@
-/* global define */
 
-define(['angular'], function (angular) {
-	
-	var uimNav = angular.module('uimApp', []);
-	
-	uimNav.controller('uimNavCtrl', ['$scope', function($scope){
-		$scope.first = 'Home';
-		$scope.sec = 'Blog';
-		$scope.third = 'Contact';
-	}]);
-	
-	return uimNav;
-});
+/* global define, document, console */
 
-define(['angular'], function (angular) {
+define([
+	'angular'
+], function (angular) {
 	
-	var uimAppModule = angular.module('uimApp', []);
-	
-	uimAppModule.controller('TextController', function($scope) {
+	var uimProAppModule = angular.module('uimProApp', []);
+
+	// Repeated List
+	uimProAppModule.controller('uimProCtrl', function($scope) {
 		$scope.items = [
 			{
 				href : 'http://www.beatsbydre.com/',
-				img : 'img/Beats.png',
+				img : 'Beats.png',
 				comp : 'Beatsbydre',
 				role : 'Interactive Developer',
 				text : {
@@ -33,7 +24,7 @@ define(['angular'], function (angular) {
 			},
 			{
 				href : 'http://www.facebook.com/Lux/app_398502690233634',
-				img : 'img/lux-app.png',
+				img : 'lux-app.png',
 				comp : 'Lux Samsung App',
 				role : 'Interactive Developer',
 				text : {
@@ -45,7 +36,7 @@ define(['angular'], function (angular) {
 			},
 			{
 				href : 'http://www.vodafone.co.uk/',
-				img : 'img/vodafone.png',
+				img : 'vodafone.png',
 				comp : 'Vodafone',
 				role : 'Interactive Developer',
 				text : {
@@ -57,7 +48,7 @@ define(['angular'], function (angular) {
 			},
 			{
 				href : 'http://www.breezepm.com/',
-				img : 'img/breezepm.png',
+				img : 'breezepm.png',
 				comp : 'Breezepm',
 				stat : 'Product of Blue Thread',
 				role : 'UI Developer',
@@ -70,7 +61,7 @@ define(['angular'], function (angular) {
 			},
 			{
 				href : 'http://www.thelocallocksmiths.com/',
-				img : 'img/thelocallocksmiths_com.png',
+				img : 'thelocallocksmiths_com.png',
 				comp : 'Locksmith',
 				role : 'Web Designer',
 				text : {
@@ -82,7 +73,7 @@ define(['angular'], function (angular) {
 			},
 			{
 				href : 'http://www.keys-replacements.com/',
-				img : 'img/keys-replacements_com.png',
+				img : 'keys-replacements_com.png',
 				comp : 'Key Replacements',
 				role : 'Web Designer',
 				text : {
@@ -97,6 +88,10 @@ define(['angular'], function (angular) {
 		$scope.remove = function(index) {
 			$scope.items.splice(index, 1);
 		};
+		console.log('profile' + $scope.items);
 	});
-	return uimAppModule;
+	angular.bootstrap(document.getElementById("uimProApp"),['uimProApp']);
+	// Return Module
+	return uimProAppModule;
+
 });

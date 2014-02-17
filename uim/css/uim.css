@@ -57,14 +57,28 @@ h1, h2, h3, h4, h5, h6 {
 h2 { margin-bottom: 10px;}
 h3 em { font-size: .9em; color: #000;}
 
-/* =New section
+/* =Header section
 ========================================================================== */
 .logo {
 	padding: 10px 0 20px;
 }
+.navbar-inverse .navbar-inner {
+	background-color: #5c5c5c;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#5c5c5c), to(#222222));
+	background-image: -webkit-linear-gradient(top, #5c5c5c 0%, #222222 100%);
+	background-image: -moz-linear-gradient(top, #5c5c5c 0%, #222222 100%);
+	background-image: -ms-linear-gradient(top, #5c5c5c 0%, #222222 100%);
+	background-image: -o-linear-gradient(top, #5c5c5c 0%, #222222 100%);
+	background-image: linear-gradient(top, #5c5c5c 0% #222222 100%);
+	border-bottom: 2px solid #888;
+}
+.navbar-search{ margin-top:10px;}
+input[type="text"] { height: 25px; }
 .row-fluid .showcase {
 	margin-left: 0;
 }
+/* =Showcase section and Blog Section
+========================================================================== */
 .showcase {
 	width: 100%;
 	min-height: 235px;
@@ -80,21 +94,49 @@ h3 em { font-size: .9em; color: #000;}
 .showcase .thumbnails {
 	margin: 0;
 }
-.showcase .thumbnails>li {
+.showcase .thumbnails > li {
 	margin-bottom: 10px;
 }
-.navbar-inverse .navbar-inner {
-	background-color: #5c5c5c;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#5c5c5c), to(#222222));
-	background-image: -webkit-linear-gradient(top, #5c5c5c 0%, #222222 100%);
-	background-image: -moz-linear-gradient(top, #5c5c5c 0%, #222222 100%);
-	background-image: -ms-linear-gradient(top, #5c5c5c 0%, #222222 100%);
-	background-image: -o-linear-gradient(top, #5c5c5c 0%, #222222 100%);
-	background-image: linear-gradient(top, #5c5c5c 0% #222222 100%);
-	border-bottom: 2px solid #888;
-}
-.navbar-search{ margin-top:10px;}
-input[type="text"] { height: 25px; }
 .thumbnail {
-	min-height: 200px;
+	min-height: 135px;
+}
+	.showcase .thumbnail {
+		min-height: 200px;
+	}
+	#post-feed .left .thumbnail {
+		min-height: 75px;
+	}
+@media only screen 
+and (max-width : 767px) {
+	#post-feed .left {
+		display: none;
+	}
+	#post-feed .right .blog-data .span4 {
+		float: left;
+		margin-right: 20px;
+		width: 25%;
+	}
+}
+	
+.heading {
+	font-size: 2.5em;
+	font-weight: 700;
+	line-height: 1.1;
+	letter-spacing: -1px;
+	margin: 0;
+	display: block;
+	text-shadow: 1px 1px 0px #f2f2f2, 1px 2px 0px #b1b1b2;
+}
+	.heading a:hover {
+		text-decoration: none;
+	}
+	.showcase .heading {
+		font-size: 1.2;
+	}
+.blog-data p {
+	padding: 10px 0 0 0;
+	line-height: 1.5;
+}
+#post-feed .heading {
+	font-size: 1.4em;
 }

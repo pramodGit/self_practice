@@ -8,16 +8,10 @@
 /*global jQuery, window, require */
 
 /**
- * Require Implementation
+ * RequireJS Implementation
  */
 require.config({
-	//By default load any module IDs from js
 	baseUrl: 'js',
-	//except, if the module ID starts with "app",
-	//load it from the js/app directory. paths
-	//config is relative to the baseUrl, and
-	//never includes a ".js" extension since
-	//the paths config could be for a directory.
 	paths: {
 		'jQuery': 'lib/jquery',
 		'modernizr': 'lib/modernizr',
@@ -26,34 +20,38 @@ require.config({
 		'less': 'lib/less',
 		'twitter': 'pr.tweet',
 		'prConfig': 'pr.config',
-		'repeatedList': 'json/repeatedList'
+		'prPro': 'json/pr.profile',
+		'prUimNav': 'json/pr.uim.nav',
+		'prBlog': 'json/pr.blog'
 	},
+	waitSeconds: 1,
 	shim: {
-		'jQuery': {'exports' : 'jQuery'},
-		'angular': {'exports' : 'angular' },
+		'jQuery': {
+			'exports' : 'jQuery'
+		},
+		'angular': {
+			'exports' : 'angular'
+		},
 		'bootstrap': {
 			'exports' : 'bootstrap',
-			'deps': ["jQuery"]
+			'deps': ['jQuery']
 		},
 		'twitter': {
 			'exports' : 'twitter'
 		},
 		'prConfig': {
 			'exports' : 'prConfig',
-			'deps': ["jQuery"]
+			'deps': ['jQuery']
+		},
+		'prBlog': {
+			'exports' : 'angular',
+			'deps': ['jQuery']
 		}
 	}
 });
 
-require(['jQuery', 'modernizr', 'angular', 'less', 'bootstrap', 'prConfig', 'repeatedList' ], function() {
+require(['jQuery', 'modernizr', 'angular', 'less', 'bootstrap', 'prConfig', 'prUimNav' ], function() {
 	
-	/* pr (our namespace name) and undefined are passed here
-	 * to ensure 1. namespace can be modified locally and isn't
-	 * overwritten outside of our function context
-	 * 2. the value of undefined is guaranteed as being truly
-	 * undefined. This is to avoid issues with undefined being
-	 * mutable pre-ES5.
-	*/
 	(function (pr, $, undefined) {
 		/**
 		 * Logging function, for debugging mode
@@ -92,8 +90,31 @@ require(['jQuery', 'modernizr', 'angular', 'less', 'bootstrap', 'prConfig', 'rep
 				 * Load Wordpress Feed
 				 */
 				var prBlog = function () {
-					
+					$.ajax({
+						type: "POST",
+						url: pr.config.prBlogUrl,
+						dataType: pr.config.prBlogDataType,
+						async: false,
+						// work with the response
+						success: function( response ) {
+							displayBlog(response, pr.config);
+						}
+					});
 				};
+				var displayBlog = function (prBlogData, config) {
+					//console.log(config.prBlogIndex);
+					$(".blog-data li .heading a").html(prBlogData.posts[config.prBlogIndex].title);
+					$(".blog-data li .heading a").prop('href', prBlogData.posts[config.prBlogIndex].url);
+					$(".blog-data li.content").append(prBlogData.posts[config.prBlogIndex].excerpt);
+					
+					$(".blog-title li .heading a").html(prBlogData.posts[config.prBlogIndex].title);
+					$(".blog-title li .heading a").prop('href', prBlogData.posts[config.prBlogIndex].url);
+					
+					$(".blog-title li .category").html(prBlogData.posts[config.prBlogIndex].categories[0].title);
+					$(".blog-title li .category").prop(
+						'href', 'http://blog.userinterfacemedia.com/category/' + prBlogData.posts[config.prBlogIndex].categories[0].slug + '/');
+				};
+				
 				
 				/**
 				 * Init call

@@ -28,7 +28,10 @@
 			'anchor': 'https://twitter.com/_pramod',
 			'id': '433103764828852224',
 			'limit': '5'
-		}
+		},
+		prBlogUrl: 'http://blog.userinterfacemedia.com/?json=1',
+		prBlogDataType: 'jsonp',
+		prBlogIndex: 1
 	};
 	
 /**
