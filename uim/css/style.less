@@ -31,10 +31,13 @@
 h1, h2 {
   color: @heading-text-color;
 }
-.showcase {
-	background: @content-background;
+.showcase, #template1 {
+	background: @content-background-light;
 	.bordered;
 	.border-radius(@radius);
+}
+#template1 {
+	background: @content-background;
 }
 .showcase .heading a {
 	color: @blue;

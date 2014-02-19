@@ -18,11 +18,14 @@ require.config({
 		'angular': 'lib/angular',
 		'bootstrap': 'lib/bootstrap',
 		'less': 'lib/less',
+		'underscore': 'lib/underscore',
 		'twitter': 'pr.tweet',
 		'prConfig': 'pr.config',
 		'prPro': 'json/pr.profile',
 		'prUimNav': 'json/pr.uim.nav',
-		'prBlog': 'json/pr.blog'
+		'prBlog': 'json/pr.blog',
+		'blogTitle': 'views/blogTitle',
+		'blogData': 'views/blogData'
 	},
 	waitSeconds: 1,
 	shim: {
@@ -36,11 +39,20 @@ require.config({
 			'exports' : 'bootstrap',
 			'deps': ['jQuery']
 		},
+		'underscore': {
+			'exports' : '._',
+			'deps': ['jQuery']
+		},
+		'blogTitle': {
+			'deps': ['jQuery', 'underscore']
+		},
+		'blogData': {
+			'deps': ['jQuery', 'underscore']
+		},
 		'twitter': {
 			'exports' : 'twitter'
 		},
 		'prConfig': {
-			'exports' : 'prConfig',
 			'deps': ['jQuery']
 		},
 		'prBlog': {
@@ -106,13 +118,23 @@ require(['jQuery', 'modernizr', 'angular', 'less', 'bootstrap', 'prConfig', 'prU
 					$(".blog-data li .heading a").html(prBlogData.posts[config.prBlogIndex].title);
 					$(".blog-data li .heading a").prop('href', prBlogData.posts[config.prBlogIndex].url);
 					$(".blog-data li.content").append(prBlogData.posts[config.prBlogIndex].excerpt);
-					
-					$(".blog-title li .heading a").html(prBlogData.posts[config.prBlogIndex].title);
-					$(".blog-title li .heading a").prop('href', prBlogData.posts[config.prBlogIndex].url);
-					
-					$(".blog-title li .category").html(prBlogData.posts[config.prBlogIndex].categories[0].title);
-					$(".blog-title li .category").prop(
-						'href', 'http://blog.userinterfacemedia.com/category/' + prBlogData.posts[config.prBlogIndex].categories[0].slug + '/');
+					/*for (var i = 0, limit = prBlogData.posts.length; i < limit; i++) {
+						$(".blog-title li .heading a").html(prBlogData.posts[i].title);
+						$(".blog-title li .heading a").prop('href', prBlogData.posts[i].url);
+
+						$(".blog-title li .category").html(prBlogData.posts[i].categories[0].title);
+						$(".blog-title li .category").prop(
+						'href', 'http://blog.userinterfacemedia.com/category/' + prBlogData.posts[i].categories[0].slug + '/');
+						//console.log( "try " + i );
+					}*/	
+					// Underscore Templating
+					var data = prBlogData.posts;
+					require(['blogTitle', 'blogData'], function(callBlogTitle, callBlogData){
+						callBlogTitle.blogTitle(data);
+						callBlogData.blogData(data);
+					});
+					// Load Tweet after others data to improve performance
+					_this.prTweets();
 				};
 				
 				
@@ -121,7 +143,7 @@ require(['jQuery', 'modernizr', 'angular', 'less', 'bootstrap', 'prConfig', 'prU
 				 */
 				this.init = function () {
 					prBlog();
-					_this.prTweets();
+					//_this.prTweets();
 					return this; /*this refere to pr.uim*/
 				};
 				return this.init(); /*initialize the init()*/

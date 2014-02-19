@@ -116,8 +116,7 @@ and (max-width : 767px) {
 		margin-right: 20px;
 		width: 25%;
 	}
-}
-	
+}	
 .heading {
 	font-size: 2.5em;
 	font-weight: 700;
@@ -138,5 +137,19 @@ and (max-width : 767px) {
 	line-height: 1.5;
 }
 #post-feed .heading {
+	font-size: 1.2em;
+	word-wrap: break-word;
+}
+#post-feed #template1 {
+	padding: 10px 10px 0 10px;
+}
+#post-feed #template1 .title {
+	font-size: 1.2em;
+	border-bottom: 1px solid #ccc;
+}
+#post-feed #template1 .heading {
+	text-shadow: none;
+}
+#post-feed #template2 .heading {
 	font-size: 1.4em;
 }
