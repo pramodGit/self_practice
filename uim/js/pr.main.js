@@ -84,71 +84,69 @@ require(['jQuery', 'modernizr', 'angular', 'less', 'bootstrap', 'prConfig', 'prU
 		 * This way it's always present when the script is executed and doesn't have to be instantiated separately.
 		*/
 		pr.uim = (function () {
-			function _uim() {
-				
-				var _this = this; /* Store this to avoid scope conflicts */
-				
-				/**
-				 * Load Tweeter Feed
-				 */
-				this.prTweets = function () {
-					if ($("#pr-tweets").length > 0) {
-						require(['twitter'], function () {
-							// console.log();
-						});
-					}
-				};
-				/**
-				 * Load Wordpress Feed
-				 */
-				var prBlog = function () {
-					$.ajax({
-						type: "POST",
-						url: pr.config.prBlogUrl,
-						dataType: pr.config.prBlogDataType,
-						async: false,
-						// work with the response
-						success: function( response ) {
-							displayBlog(response, pr.config);
-						}
+
+			var _this = this; /* Store this to avoid scope conflicts */
+
+			/**
+			 * Load Tweeter Feed
+			 */
+			this.prTweets = function () {
+				if ($("#pr-tweets").length > 0) {
+					require(['twitter'], function () {
+						// console.log();
 					});
-				};
-				var displayBlog = function (prBlogData, config) {
+				}
+			};
+			/**
+			 * Load Wordpress Feed
+			 */
+			var prBlog = function () {
+				$.ajax({
+					type: "POST",
+					url: pr.config.prBlogUrl,
+					dataType: pr.config.prBlogDataType,
+					async: false,
+					// work with the response
+					success: function( response ) {
+						_this.displayBlognTweet.blog(response, pr.config).tweet();
+					}
+				});
+			};
+			this.displayBlognTweet = {
+				
+				blog: function (prBlogData, config) {
 					//console.log(config.prBlogIndex);
 					$(".blog-data li .heading a").html(prBlogData.posts[config.prBlogIndex].title);
 					$(".blog-data li .heading a").prop('href', prBlogData.posts[config.prBlogIndex].url);
 					$(".blog-data li.content").append(prBlogData.posts[config.prBlogIndex].excerpt);
-					/*for (var i = 0, limit = prBlogData.posts.length; i < limit; i++) {
-						$(".blog-title li .heading a").html(prBlogData.posts[i].title);
-						$(".blog-title li .heading a").prop('href', prBlogData.posts[i].url);
 
-						$(".blog-title li .category").html(prBlogData.posts[i].categories[0].title);
-						$(".blog-title li .category").prop(
-						'href', 'http://blog.userinterfacemedia.com/category/' + prBlogData.posts[i].categories[0].slug + '/');
-						//console.log( "try " + i );
-					}*/	
 					// Underscore Templating
 					var data = prBlogData.posts;
 					require(['blogTitle', 'blogData'], function(callBlogTitle, callBlogData){
 						callBlogTitle.blogTitle(data);
 						callBlogData.blogData(data);
 					});
-					// Load Tweet after others data to improve performance
-					_this.prTweets();
-				};
-				
-				
-				/**
-				 * Init call
-				 */
-				this.init = function () {
-					prBlog();
-					//_this.prTweets();
-					return this; /*this refere to pr.uim*/
-				};
-				return this.init(); /*initialize the init()*/
-			}
-			return new _uim(); /*creating a new object of uim rather then a funtion*/
+
+					return this;
+				},
+				tweet: function () {
+					if ($("#pr-tweets").length > 0) {
+						require(['twitter'], function () {
+							// console.log();
+						});
+					}
+				}
+			};
+
+			/**
+			 * Init call
+			 */
+			this.init = function () {
+				prBlog();
+				//_this.prTweets();
+				return this; /* this refere to pr.uim */
+			};
+			return this.init(); /*initialize the init()*/
 		}());
 	
 	/**
