@@ -11,8 +11,8 @@ define([
 					'<div class="thumbnail">&nbsp;</div>' +
 				'</li>' +
 				'<li class="span8 content">' +
-					'<h2 class="heading"><a href="<%= title %>" target="_blank"><%= title %></a></h2>' +
-					'<em>in</em> <a href="#" target="_blank" class="category"><%= categories[0].title %></a>' +
+					'<h2 class="heading"><a href="<%= url %>" target="_blank"><%= title %></a></h2>' +
+					'<em>in</em> <a href="http://blog.userinterfacemedia.com/category/<%= categories[0].slug %>" target="_blank" class="category"><%= categories[0].title %></a>' +
 				'</li>' +
 			'</ul>'
 		);

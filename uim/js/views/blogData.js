@@ -11,7 +11,7 @@ define([
 					'<div class="thumbnail">&nbsp;</div>' +
 				'</li>' +
 				'<li class="span8 content">' +
-					'<h2 class="heading"><a href="#" target="_blank"><%= title %></a></h2>' +
+					'<h2 class="heading"><a href="<%= url %>" target="_blank"><%= title %></a></h2>' +
 					'<%= excerpt %>' +
 				'</li>' +
 			'</ul>'

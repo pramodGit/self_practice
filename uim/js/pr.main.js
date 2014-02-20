@@ -102,10 +102,11 @@ require(['jQuery', 'modernizr', 'angular', 'less', 'bootstrap', 'prConfig', 'prU
 			 */
 			var prBlog = function () {
 				$.ajax({
-					type: "POST",
+					type: "GET",
 					url: pr.config.prBlogUrl,
 					dataType: pr.config.prBlogDataType,
 					async: false,
+					cache: false,
 					// work with the response
 					success: function( response ) {
 						_this.displayBlognTweet.blog(response, pr.config).tweet();
@@ -135,6 +136,7 @@ require(['jQuery', 'modernizr', 'angular', 'less', 'bootstrap', 'prConfig', 'prU
 							// console.log();
 						});
 					}
+					return this;
 				}
 			};
 
