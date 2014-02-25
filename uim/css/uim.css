@@ -21,9 +21,6 @@ body {
 #main {
 	width: 100%;
 }
-.navbar {
-	margin-bottom: 15px;
-}
 .navbar-inner {
 	min-height: 45px;
 }
@@ -50,7 +47,8 @@ h1, h2, h3, h4{
 	line-height: 1.2;
 }
 h1, h2, h3, h4, h5, h6 {
-	color: rgb(82, 133, 209);
+	/*color: rgb(82, 133, 209);*/
+	color: #414141;
 	font-weight: normal;
 	margin: 5px 0;
 }
@@ -60,7 +58,7 @@ h3 em { font-size: .9em; color: #000;}
 /* =Header section
 ========================================================================== */
 .logo {
-	padding: 10px 0 20px;
+	padding: 10px 0 30px;
 }
 .navbar-inverse .navbar-inner {
 	background-color: #5c5c5c;
@@ -81,7 +79,7 @@ input[type="text"] { height: 25px; }
 ========================================================================== */
 .showcase {
 	width: 100%;
-	min-height: 235px;
+	min-height: 222px;
 	padding: 10px 10px 0;
 	margin-bottom: 20px;
 	-webkit-box-shadow: 0 0 6px 0px rgba(50, 50, 50, 0.1);
@@ -121,7 +119,7 @@ and (max-width : 767px) {
 		text-decoration: none;
 	}
 	.showcase .heading {
-		font-size: 1.2;
+		font-size: 2.2em;
 	}
 .blog-data p {
 	padding: 10px 0 0 0;
@@ -135,8 +133,11 @@ and (max-width : 767px) {
 	padding: 10px 10px 0 10px;
 }
 #post-feed #title-template .title {
-	font-size: 1.2em;
 	border-bottom: 1px solid #ccc;
+	font-size: 1.2em;
+	font-weight: bold;
+	padding-bottom: 5px;
+	text-transform: uppercase;
 }
 #post-feed #title-template .heading {
 	text-shadow: none;

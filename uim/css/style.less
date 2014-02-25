@@ -29,7 +29,7 @@
   color: @active-color;
 }
 h1, h2 {
-  color: @heading-text-color;
+  color: @grey;
 }
 .showcase, #title-template {
 	background: @content-background-light;
@@ -53,4 +53,8 @@ h1, h2 {
 }
 .thumbnail img {
 	.border-radius(@radius12);
+}
+#title-template .thumbnail,
+#title-template .thumbnail img{
+	.border-radius(@radius10);
 }
