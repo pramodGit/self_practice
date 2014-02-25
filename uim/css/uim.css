@@ -97,15 +97,6 @@ input[type="text"] { height: 25px; }
 .showcase .thumbnails > li {
 	margin-bottom: 10px;
 }
-.thumbnail {
-	min-height: 135px;
-}
-	.showcase .thumbnail {
-		min-height: 200px;
-	}
-	#post-feed .left .thumbnail {
-		min-height: 75px;
-	}
 @media only screen 
 and (max-width : 767px) {
 	#post-feed .left {
@@ -140,16 +131,16 @@ and (max-width : 767px) {
 	font-size: 1.2em;
 	word-wrap: break-word;
 }
-#post-feed #template1 {
+#post-feed #title-template {
 	padding: 10px 10px 0 10px;
 }
-#post-feed #template1 .title {
+#post-feed #title-template .title {
 	font-size: 1.2em;
 	border-bottom: 1px solid #ccc;
 }
-#post-feed #template1 .heading {
+#post-feed #title-template .heading {
 	text-shadow: none;
 }
-#post-feed #template2 .heading {
+#post-feed #data-template .heading {
 	font-size: 1.4em;
 }

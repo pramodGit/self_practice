@@ -116,13 +116,14 @@ require(['jQuery', 'modernizr', 'angular', 'less', 'bootstrap', 'prConfig', 'prU
 			this.displayBlognTweet = {
 				
 				blog: function (prBlogData, config) {
-					//console.log(config.prBlogIndex);
-					$(".blog-data li .heading a").html(prBlogData.posts[config.prBlogIndex].title);
-					$(".blog-data li .heading a").prop('href', prBlogData.posts[config.prBlogIndex].url);
-					$(".blog-data li.content").append(prBlogData.posts[config.prBlogIndex].excerpt);
+					console.log(config.prBlogIndex);
+					var data = prBlogData.posts,
+						prBlogIndex = config.prBlogIndex;
+					$(".blog-data li .heading a").html(data[prBlogIndex].title);
+					$(".blog-data li .heading a").prop('href', data[prBlogIndex].url);
+					$(".blog-data li.content").append(data[prBlogIndex].excerpt);
 
 					// Underscore Templating
-					var data = prBlogData.posts;
 					require(['blogTitle', 'blogData'], function(callBlogTitle, callBlogData){
 						callBlogTitle.blogTitle(data);
 						callBlogData.blogData(data);

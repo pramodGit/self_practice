@@ -31,12 +31,12 @@
 h1, h2 {
   color: @heading-text-color;
 }
-.showcase, #template1 {
+.showcase, #title-template {
 	background: @content-background-light;
 	.bordered;
 	.border-radius(@radius);
 }
-#template1 {
+#title-template {
 	background: @content-background;
 }
 .showcase .heading a {
@@ -46,4 +46,11 @@ h1, h2 {
 #post-feed .heading a {
 	color: @grey;
 	&:hover, &:active {color: @blue;}  
+}
+.thumbnail {
+	border-color: @thumbsborder-color;
+	.border-radius(@radius12);
+}
+.thumbnail img {
+	.border-radius(@radius12);
 }
