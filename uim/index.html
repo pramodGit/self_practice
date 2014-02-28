@@ -47,7 +47,7 @@
 				      <div class="nav-collapse collapse">
 				        <!-- .nav, .navbar-search, .navbar-form, etc -->
 				        <ul id="uimNavApp" ng-app="uimNavApp" class="nav" ng-controller="uimNavCtrl">
-					      <li class="active"><a href="#"><i class="icon-home"></i> {{nav[0]}}</a></li>
+					      <li class="active"><a href="/"><i class="icon-home"></i> {{nav[0]}}</a></li>
 					      <li><a href="about.html"><i class="icon-user icon-white"></i> {{nav[1]}}</a></li>
 					      <li><a href="http://blog.userinterfacemedia.com/" target="_blank"><i class="icon-book icon-white"></i> {{nav[2]}}</a></li>
 					      <li><a href="contact.html"><i class="icon-list-alt icon-white"></i> {{nav[3]}}</a></li>
@@ -66,7 +66,7 @@
 				<div class="container">
 					<div class="row-fluid logo">
 						<div class="span6">
-							<h1><a href="index.html"><img alt="UIM" src="images/logo.png" /></a></h1>
+							<h1><a href="/"><img alt="UIM" src="images/logo.png" /></a></h1>
 						</div>
 						<div class="span6"></div>
 					</div>
@@ -127,8 +127,13 @@
 			<!-- END : Content -->
             <!-- START : Footer -->
             <footer>
-            	<div id="footer" class="container">
-					Footer
+            	<div class="container">
+					<ul class="nav nav-pills">
+				      <li><a href="/">Home</a></li>
+				      <li><a href="about.html">About</a></li>
+				      <li><a href="http://blog.userinterfacemedia.com/" target="_blank">Blog</a></li>
+				      <li><a href="contact.html">Contact</a></li>
+				    </ul>
 				</div>
             </footer>
             <!-- END : Footer -->
