@@ -24,7 +24,7 @@ require.config({
 		'prConfig': 'pr.config',
 		'prPro': 'json/pr.profile',
 		'prUimNav': 'views/pr.uim.nav',
-		'uimContent': 'views/uim.content',
+		'uimContent': 'modal/uim.content',
 		'prBlog': 'json/pr.blog',
 		'blogTitle': 'views/blogTitle',
 		'blogData': 'views/blogData',
