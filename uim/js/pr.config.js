@@ -31,7 +31,7 @@
 		},
 		prBlogUrl: 'http://blog.userinterfacemedia.com/?json=1',
 		prBlogDataType: 'jsonp',
-		prBlogIndex: 5
+		prBlogIndex: 6
 	};
 	
 /**

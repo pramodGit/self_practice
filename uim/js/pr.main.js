@@ -16,16 +16,19 @@ require.config({
 		'jQuery': 'lib/jquery',
 		'modernizr': 'lib/modernizr',
 		'angular': 'lib/angular',
+		'angularRoute': 'lib/angular-route',
 		'bootstrap': 'lib/bootstrap',
 		'less': 'lib/less',
 		'underscore': 'lib/underscore',
 		'twitter': 'pr.tweet',
 		'prConfig': 'pr.config',
 		'prPro': 'json/pr.profile',
-		'prUimNav': 'json/pr.uim.nav',
+		'prUimNav': 'views/pr.uim.nav',
+		'uimContent': 'views/uim.content',
 		'prBlog': 'json/pr.blog',
 		'blogTitle': 'views/blogTitle',
-		'blogData': 'views/blogData'
+		'blogData': 'views/blogData',
+		'uimContact': 'controller/uim.contact'
 	},
 	waitSeconds: 1,
 	shim: {
@@ -33,6 +36,9 @@ require.config({
 			'exports' : 'jQuery'
 		},
 		'angular': {
+			'exports' : 'angular'
+		},
+		'angularRoute' : {
 			'exports' : 'angular'
 		},
 		'bootstrap': {
@@ -58,11 +64,14 @@ require.config({
 		'prBlog': {
 			'exports' : 'angular',
 			'deps': ['jQuery']
+		},
+		'uimContact': {
+			'deps': ['jQuery']
 		}
 	}
 });
 
-require(['jQuery', 'modernizr', 'angular', 'less', 'bootstrap', 'prConfig', 'prUimNav' ], function() {
+require(['jQuery', 'modernizr', 'angular', 'angularRoute', 'less', 'bootstrap', 'prConfig', 'prUimNav'], function() {
 	
 	(function (pr, $, undefined) {
 		/**
@@ -93,14 +102,38 @@ require(['jQuery', 'modernizr', 'angular', 'less', 'bootstrap', 'prConfig', 'prU
 			this.prTweets = function () {
 				if ($("#pr-tweets").length > 0) {
 					require(['twitter'], function () {
-						// console.log();
+						//console.log('about');
 					});
 				}
 			};
+
+			/**
+             * Contact Form Submit
+             */
+            this.contactFormSubmit = function () {
+            	if ($("#contactForm").length > 0) {
+					require(['uimContact'], function () {
+						//console.log('contact');
+					});
+				}
+            };
+
+			/**
+			 * Load Content
+			 */
+			this.uimContent = function () {
+				if ($("#uimContentApp").length > 0) {
+					require(['uimContent'], function () {
+						//console.log('about');
+					});
+				}
+			};
+
 			/**
 			 * Load Wordpress Feed
 			 */
 			var prBlog = function () {
+				// Retrieve Blog data
 				$.ajax({
 					type: "GET",
 					url: pr.config.prBlogUrl,
@@ -112,6 +145,7 @@ require(['jQuery', 'modernizr', 'angular', 'less', 'bootstrap', 'prConfig', 'prU
 						_this.displayBlognTweet.blog(response, pr.config).tweet();
 					}
 				});
+					
 			};
 			this.displayBlognTweet = {
 				
@@ -121,6 +155,7 @@ require(['jQuery', 'modernizr', 'angular', 'less', 'bootstrap', 'prConfig', 'prU
 						prBlogIndex = config.prBlogIndex,
 						$elm = $(".blog-data"),
 						$anchor = $elm.find(".heading a");
+					//console.log(data);
 					$anchor.html(data[prBlogIndex].title).prop({'href':data[prBlogIndex].url});
 					$(".blog-data li.content").append(data[prBlogIndex].excerpt).find("p a").prop({'target':'_blank'});
 
@@ -136,7 +171,7 @@ require(['jQuery', 'modernizr', 'angular', 'less', 'bootstrap', 'prConfig', 'prU
 				tweet: function () {
 					if ($("#pr-tweets").length > 0) {
 						require(['twitter'], function () {
-							// console.log();
+							//console.log('home');
 						});
 					}
 					return this;
@@ -160,8 +195,16 @@ require(['jQuery', 'modernizr', 'angular', 'less', 'bootstrap', 'prConfig', 'prU
 			 * Init call
 			 */
 			this.init = function () {
-				prBlog();
-				//_this.prTweets();
+
+				if ($("#home").length > 0) {
+					//console.log('if');
+					prBlog();
+				} else {
+					//console.log('else');
+					_this.uimContent();
+					_this.prTweets();
+				}
+				_this.contactFormSubmit();
 				return this; /* this refere to pr.uim */
 			};
 			return this.init(); /*initialize the init()*/

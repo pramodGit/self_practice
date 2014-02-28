@@ -1,16 +1,19 @@
-/* global document, define */
+/* global define */
 
 define([
-	'angular'
+	'angular',
+	'angularRoute'
 ], function (angular) {
-	
+
+	angular.module('uimNavApp', ['ngRoute']);
 	var uimNavAppModule = angular.module('uimNavApp', []);
 	
 	// Navigation
 	uimNavAppModule.controller('uimNavCtrl', ['$scope', function($scope){
-		$scope.first = 'Home';
-		$scope.sec = 'Blog';
-		$scope.third = 'Contact';
+		$scope.nav = ['Home', 'About', 'Blog', 'Contact'];
+		//$scope.first = 'Home';
+		//$scope.sec = 'Blog';
+		//$scope.third = 'Contact';
 	}]);
 	//angular.bootstrap(document.getElementById("uimNavApp"),['uimNavApp']);
 	// Return Module
