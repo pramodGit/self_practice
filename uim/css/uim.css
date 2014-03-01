@@ -99,7 +99,7 @@ input[type="text"] { height: 25px; }
 	margin-bottom: 10px;
 }
 @media only screen 
-and (max-width : 767px) {
+and (max-width : 980px) {
 	#post-feed .left {
 		display: none;
 	}
@@ -108,7 +108,7 @@ and (max-width : 767px) {
 		margin-right: 20px;
 		width: 25%;
 	}
-}	
+}
 .heading {
 	font-size: 2.5em;
 	font-weight: 700;
@@ -164,6 +164,7 @@ and (max-width : 767px) {
 #pr-tweets {
 	padding: 5px 7px;
 }
+	#pr-tweets iframe { width: 100% !important;}
 /* =Footer section
 ========================================================================== */
 footer {
@@ -179,10 +180,16 @@ footer {
 	background-image: -ms-linear-gradient(top, #999999 0%, #555555 100%);
 	background-image: -o-linear-gradient(top, #999999 0%, #555555 100%);
 	background-image: linear-gradient(top, #999999 0% #555555 100%);
-	margin: 10px -20px 0;
+	margin: 10px 0 0;
 	padding-top: 10px;
 	position: static;
 }
 	footer a {
 		color: #fff;
 	}
+@media (max-width: 767px) {
+  footer {
+    margin-right: -20px;
+    margin-left: -20px;
+  }
+ }
