@@ -30,7 +30,7 @@ require.config({
 		'blogData': 'views/blogData',
 		'uimContact': 'controller/uim.contact'
 	},
-	waitSeconds: 1,
+	waitSeconds: 200,
 	shim: {
 		'jQuery': {
 			'exports' : 'jQuery'
@@ -142,20 +142,20 @@ require(['jQuery', 'modernizr', 'angular', 'angularRoute', 'less', 'bootstrap', 
 					cache: false,
 					// work with the response
 					success: function( response ) {
-						_this.displayBlognTweet.blog(response, pr.config).tweet();
+						_this.displayBlognTweet.blog(response.posts, pr.config).tweet();
 					}
 				});
 					
 			};
 			this.displayBlognTweet = {
 				
-				blog: function (prBlogData, config) {
+				blog: function (data, config) {
 					//console.log(config.prBlogIndex);
-					var data = prBlogData.posts,
-						prBlogIndex = config.prBlogIndex,
+					var	prBlogIndex = config.prBlogIndex,
 						$elm = $(".blog-data"),
 						$anchor = $elm.find(".heading a");
 					//console.log(data);
+					// Showcase Data
 					$anchor.html(data[prBlogIndex].title).prop({'href':data[prBlogIndex].url});
 					$(".blog-data li.content").append(data[prBlogIndex].excerpt).find("p a").prop({'target':'_blank'});
 

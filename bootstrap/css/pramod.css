@@ -187,3 +187,39 @@ ul.intervals li {
 }
 #portfolio.content { background: #eee;/*background: transparent url(../img/texture.jpg);*/}
 #portfolio h4 { margin: 0; padding: 0;}
+
+/* =Responsive
+========================================================================== */
+@media only screen and (max-width: 1199px) {
+
+	#carouselContainer .slider {
+		width: 609px;
+	}
+	#carouselContainer {
+		width: 770px;
+	}
+}
+@media only screen and (max-width: 979px) {
+
+	#carouselContainer .slider {
+		width: 303px;
+	}
+	#carouselContainer {
+		width: 475px;
+	}
+}
+@media only screen and (max-width: 767px) {
+	#home .row-fluid .first {
+		border-right: none;
+	}
+}
+@media only screen and (max-width: 619px) {
+
+	#carouselContainer .slider,
+	#carouselContainer {
+		width: 276px;
+	}
+	#carouselContainer .controls {
+		display: none;
+	}
+}

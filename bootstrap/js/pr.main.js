@@ -81,7 +81,20 @@
                     $wdth = $("#carousel > li").length * pr.config.liWidth;
                 $carouselContainer.find("#carousel").css("width",$wdth);
                 require(['slider'], function(carouselControl){
-                    carouselControl.slider($carouselContainer, $liWidth, $wdth, $totalLi, pr.config.slider.scrollCount, pr.config.slider.auto);
+    
+                    var $windowSize = $(window).width();
+                    //console.log($windowSize);
+                    if ($windowSize < 1200) {
+                        $scrollCount = 2;
+                        //console.log('less 1200 -' + $scrollCount)
+                    } else if ($windowSize < 979) {
+                        $scrollCount = 1;
+                        //console.log('more 979 - ' + $scrollCount)
+                    } else {
+                        $scrollCount = pr.config.slider.scrollCount;
+                    }
+                    //console.log($scrollCount);
+                    carouselControl.slider($carouselContainer, $liWidth, $wdth, $totalLi, $scrollCount, pr.config.slider.auto);
                 });
             };
             /**
