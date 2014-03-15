@@ -22,7 +22,7 @@ define([
 		for (i = 0; i < data.length; i++) {
 			toAppendString += compiled(data[i]);
 		}  
-		$("#title-template").append(toAppendString);
+		$("#title-template .content").html(toAppendString);
 	}
 
 	return {

@@ -13,9 +13,9 @@
 require.config({
 	baseUrl: 'js',
 	paths: {
-		'jQuery': 'lib/jquery',
-		'modernizr': 'lib/modernizr',
-		'angular': 'lib/angular',
+		'jQuery': '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min',
+		'modernizr': 'http://modernizr.com/downloads/modernizr-latest',
+		'angular': '//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min',
 		'angularRoute': 'lib/angular-route',
 		'bootstrap': 'lib/bootstrap',
 		'less': 'lib/less',
@@ -133,31 +133,50 @@ require(['jQuery', 'modernizr', 'angular', 'angularRoute', 'less', 'bootstrap', 
 			 * Load Wordpress Feed
 			 */
 			var prBlog = function () {
-				// Retrieve Blog data
-				$.ajax({
-					type: "GET",
-					url: pr.config.prBlogUrl,
-					dataType: pr.config.prBlogDataType,
-					async: false,
-					cache: false,
-					// work with the response
-					success: function( response ) {
-						_this.displayBlognTweet.blog(response.posts, pr.config).tweet();
-					}
-				});
-					
+				_this.displayBlognTweet.ajx(pr.config.prBlogUrl);
+				var $pagination = $(".pager"),
+					$paginationA = $pagination.find("a");
+				if ( $pagination.length > 0 ) {
+					$paginationA.on("click", function () {
+						$paginationA.removeClass("active");
+						$(this).addClass("active");
+						if ( $(this).hasClass(".first") ) {
+							_this.displayBlognTweet.ajx(pr.config.prBlogUrl);
+						}
+						else {
+							_this.displayBlognTweet.ajx(pr.config.prBlogUrlPage2);
+						}
+						return false;
+					});
+				}	
 			};
 			this.displayBlognTweet = {
-				
+				ajx: function ($url) {
+					// Retrieve Blog data
+					$.ajax({
+						type: "GET",
+						url: $url,
+						dataType: pr.config.prBlogDataType,
+						async: false,
+						cache: false,
+						// work with the response
+						success: function( response ) {
+							_this.displayBlognTweet.blog(response.posts, pr.config).tweet();
+							$("html, body").animate({ scrollTop: 0 }, "slow");
+						}
+					});
+				},
 				blog: function (data, config) {
 					//console.log(config.prBlogIndex);
 					var	prBlogIndex = config.prBlogIndex,
 						$elm = $(".blog-data"),
-						$anchor = $elm.find(".heading a");
+						$anchor = $elm.find(".heading a"),
+						$showCase = $(".blog-data");
 					//console.log(data);
 					// Showcase Data
 					$anchor.html(data[prBlogIndex].title).prop({'href':data[prBlogIndex].url});
-					$(".blog-data li.content").append(data[prBlogIndex].excerpt).find("p a").prop({'target':'_blank'});
+					$showCase.find(".content").html(data[prBlogIndex].excerpt).find("p a").prop({'target':'_blank'});
+					$showCase.find(".thumbnail img").prop({'src':'images/thumbs/' + data[prBlogIndex].tags[0].slug + '.jpg'});
 
 					// Underscore Templating
 					require(['blogTitle', 'blogData'], function(callBlogTitle, callBlogData){

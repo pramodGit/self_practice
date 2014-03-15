@@ -29,9 +29,10 @@
 			'id': '433103764828852224',
 			'limit': '5'
 		},
-		prBlogUrl: 'http://blog.userinterfacemedia.com/?json=1',
+		prBlogUrl: 'http://blog.userinterfacemedia.com/?page=1&json=1',
+		prBlogUrlPage2: 'http://blog.userinterfacemedia.com/?page=2&json=1',
 		prBlogDataType: 'jsonp',
-		prBlogIndex: 2
+		prBlogIndex: 3
 	};
 	
 /**
