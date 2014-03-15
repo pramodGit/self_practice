@@ -138,9 +138,11 @@ require(['jQuery', 'modernizr', 'angular', 'angularRoute', 'less', 'bootstrap', 
 					$paginationA = $pagination.find("a");
 				if ( $pagination.length > 0 ) {
 					$paginationA.on("click", function () {
+						console.log('click');
 						$paginationA.removeClass("active");
 						$(this).addClass("active");
-						if ( $(this).hasClass(".first") ) {
+						if ( $(this).hasClass("first") ) {
+							console.log('first');
 							_this.displayBlognTweet.ajx(pr.config.prBlogUrl);
 						}
 						else {
