@@ -166,6 +166,10 @@ and (max-width : 980px) {
 }
 	#pr-tweets iframe { width: 100% !important;}
 
+.pager li > a:hover,
+.pager li > a:focus {
+	outline: none;
+}
 .pager li > a.active {
 	background-color: #08c;
 	color: #fff;
